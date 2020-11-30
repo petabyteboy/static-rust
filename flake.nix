@@ -33,6 +33,9 @@
                   "openssl-1.0.2u"
                 ];
             };
+            crossSystem = {
+                config = "x86_64-unknown-linux-musl";
+            };
             overlays = [
                 (import mozilla-overlay)
                 devshell.overlay

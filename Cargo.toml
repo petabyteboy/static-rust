@@ -15,7 +15,7 @@ tide = { version = "0.13.0", features = [ "logger" ]}
 http-types = "2.5.0"
 async-std = { version = "1.6.0", features = ["attributes"] }
 sqlx = { version = "0.3.5", features = [ "postgres" ] }
-openssl = { version = "0.10.30" }
+openssl = { version = "0.10.30" } #, features = [ "vendored" ] }
 openssl-probe = "0.1.2"
 uuid = "0.8.1"
 dotenv = "0.15.0"
