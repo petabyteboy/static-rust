@@ -45,7 +45,7 @@
                   "openssl-1.0.2u"
                 ];
             };
-            # crossOverlays = [ (import "${nixpkgs}/pkgs/top-level/static.nix") ];
+            crossOverlays = [ (import "${nixpkgs}/pkgs/top-level/static.nix") ];
             crossSystem = {
                 isStatic = true;
                 config = "x86_64-unknown-linux-musl";

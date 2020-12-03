@@ -40,9 +40,9 @@ in
         buildInputs = oldAttrs.buildInputs ++ [ zlibStatic prev.cacert ];
       }
     );
-    rust = prev.callPackage ./rust { };
-    myRustPlatform = prev.makeRustPlatform prev.rustPackages_1_45;
-    static-rust = myRustPlatform.buildRustPackage rec {
+    #rust = prev.callPackage ./rust { };
+    #myRustPlatform = prev.makeRustPlatform prev.rustPackages_1_45;
+    static-rust = final.rustPlatform.buildRustPackage rec {
         pname = "rust-backend";
         version = "0.0.1";
 
@@ -64,14 +64,14 @@ in
         # PQ_LIB_STATIC_X86_64_UNKNOWN_LINUX_MUSL=1;
 
 
-        TARGET="musl";
-        target="x86_64-unknown-linux-musl";
+        #TARGET="musl";
+        #target="x86_64-unknown-linux-musl";
         # Needed to get openssl-sys to use pkgconfig.
         # OPENSSL_NO_VENDOR = 1;
         doCheck = false;
 
         nativeBuildInputs = [
-          prev.pkgsStatic.pkg-config
+          prev.buildPackages.pkg-config
         #   prev.glibc
         #   prev.pkgsMusl.glibc
         #   prev.musl.dev
